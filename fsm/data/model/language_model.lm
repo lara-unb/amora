@@ -1,0 +1,86 @@
+Language model created by QuickLM on Tue Nov 19 10:38:51 EST 2013
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 8 sentences and 18 words
+
+\data\
+ngram 1=18
+ngram 2=25
+ngram 3=20
+
+\1-grams:
+-0.9777 </s> -0.3010
+-0.9777 <s> -0.2527
+-1.4037 AM -0.2775
+-1.5798 ARAMIS -0.2527
+-1.8808 BYE -0.2527
+-1.8808 FOLLOW -0.2894
+-1.8808 GABRIEL -0.2527
+-1.8808 GEORGE -0.2527
+-1.8808 GOOD -0.2953
+-1.8808 GUIDE -0.2953
+-1.8808 HI -0.2894
+-1.4037 I -0.2835
+-1.8808 LARA -0.2527
+-1.5798 ME -0.2463
+-1.8808 MODE -0.2527
+-1.8808 SHOW -0.2894
+-1.8808 THE -0.2953
+-1.8808 TOUR -0.2953
+
+\2-grams:
+-1.2041 <s> FOLLOW 0.0000
+-1.2041 <s> GOOD 0.0000
+-1.2041 <s> HI 0.0000
+-0.7270 <s> I 0.0000
+-1.2041 <s> SHOW 0.0000
+-1.2041 <s> TOUR 0.0000
+-0.7782 AM ARAMIS 0.0000
+-0.7782 AM GABRIEL 0.0000
+-0.7782 AM GEORGE 0.0000
+-0.3010 ARAMIS </s> -0.3010
+-0.3010 BYE </s> -0.3010
+-0.3010 FOLLOW ME -0.1761
+-0.3010 GABRIEL </s> -0.3010
+-0.3010 GEORGE </s> -0.3010
+-0.3010 GOOD BYE 0.0000
+-0.3010 GUIDE MODE 0.0000
+-0.3010 HI ARAMIS 0.0000
+-0.3010 I AM 0.0000
+-0.3010 LARA </s> -0.3010
+-0.6021 ME </s> -0.3010
+-0.6021 ME THE 0.0000
+-0.3010 MODE </s> -0.3010
+-0.3010 SHOW ME -0.1761
+-0.3010 THE LARA 0.0000
+-0.3010 TOUR GUIDE 0.0000
+
+\3-grams:
+-0.3010 <s> FOLLOW ME
+-0.3010 <s> GOOD BYE
+-0.3010 <s> HI ARAMIS
+-0.3010 <s> I AM
+-0.3010 <s> SHOW ME
+-0.3010 <s> TOUR GUIDE
+-0.3010 AM ARAMIS </s>
+-0.3010 AM GABRIEL </s>
+-0.3010 AM GEORGE </s>
+-0.3010 FOLLOW ME </s>
+-0.3010 GOOD BYE </s>
+-0.3010 GUIDE MODE </s>
+-0.3010 HI ARAMIS </s>
+-0.7782 I AM ARAMIS
+-0.7782 I AM GABRIEL
+-0.7782 I AM GEORGE
+-0.3010 ME THE LARA
+-0.3010 SHOW ME THE
+-0.3010 THE LARA </s>
+-0.3010 TOUR GUIDE MODE
+
+\end\
