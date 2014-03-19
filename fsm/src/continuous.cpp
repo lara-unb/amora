@@ -96,6 +96,9 @@ void ps::recognize_from_microphone(string& fala)
 
 //end festival
 
+        fflush(stdout);
+        fflush(stderr);
+
     if ((ad = ad_open_dev(cmd_ln_str_r(config, "-adcdev"),
                           (int)cmd_ln_float32_r(config, "-samprate"))) == NULL)
         E_FATAL("Failed to open audio device\n");
@@ -110,13 +113,15 @@ void ps::recognize_from_microphone(string& fala)
 
     //for (;;) {
         /* Indicate listening for next utterance */
+        fflush(stdout);
+        fflush(stderr);
         printf("READY....\n");
+        festival_say_text(EST_String("I AM READY."));
         if(first == true)
         {
                 festival_initialize(load_init_files,heap_size);
                 first = false;
         }
-        festival_say_text(EST_String("I AM READY."));
         
         fflush(stdout);
         fflush(stderr);
