@@ -122,7 +122,7 @@ void ps::recognize_from_microphone(string& fala)
                 first = false;
         }
         festival_say_text(EST_String("I AM READY."));
-        ps::sleep_msec(20);
+//        ps::sleep_msec(20);
         
         fflush(stdout);
         fflush(stderr);
