@@ -5,7 +5,7 @@ void filters::openfile(vector<string> *vecmap)
 	static int n = 0;//variavel estatica local
 	if(n != 0)	return;//Sair caso a funcao ja tenha sido chamada, evitar acesso ao HD
 	
-	ifstream filemap("/home/aramis/workspaces/hydro/test_ws/src/hello/data/model/corpus.txt");//Abrir arquivo texto com os comandos
+	ifstream filemap("/home/aramis/workspaces/hydro/catkin_ws/src/hello/data/model/corpus.txt");//Abrir arquivo texto com os comandos
 	string linha;
 	
 	if(!filemap.is_open())//Problema na abertura do arquivo
