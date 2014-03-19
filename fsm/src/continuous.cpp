@@ -117,6 +117,7 @@ void ps::recognize_from_microphone(string& fala)
         fflush(stderr);
         printf("READY....\n");
         festival_say_text(EST_String("I AM READY."));
+        ps::sleep_msec(20);
         if(first == true)
         {
                 festival_initialize(load_init_files,heap_size);
