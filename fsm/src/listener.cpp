@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 
     ros::spinOnce();
 
-    loop_rate.sleep();
+    //loop_rate.sleep();
   }
 
   festival_say_text(EST_String("GOOD BYE."));
