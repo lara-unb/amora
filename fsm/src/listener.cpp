@@ -20,9 +20,9 @@ int main(int argc, char **argv)
     char *vetor[5];
     	  vetor[0] = (char*)"./continuous\0";
     	  vetor[1] = (char*)"-lm\0";
-    	  vetor[2] = (char*)"/home/gastd/workspaces/hydro/test_ws/src/hello/data/model/language_model.lm\0";
+    	  vetor[2] = (char*)"/home/aramis/workspaces/hydro/test_ws/src/hello/data/model/language_model.lm\0";
     	  vetor[3] = (char*)"-dict\0";
-    	  vetor[4] = (char*)"/home/gastd/workspaces/hydro/test_ws/src/hello/data/model/phonetic_dictionary.dic\0";
+    	  vetor[4] = (char*)"/home/aramis/workspaces/hydro/test_ws/src/hello/data/model/phonetic_dictionary.dic\0";
 
     std_msgs::String msg;
     std::string sms;
