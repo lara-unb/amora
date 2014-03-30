@@ -1,0 +1,3 @@
+<launch>
+	<node name="listener" pkg="fsm" type="listener" />
+</launch>

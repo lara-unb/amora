@@ -3,57 +3,32 @@
 
 #include "continuous.h"
 
-#include <sstream>
-
+using namespace std;
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "listener");
-  ros::NodeHandle n;
-  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+	ros::init(argc, argv, "listener");
+	ros::NodeHandle n;
+	ros::Publisher ear_pub = n.advertise<std_msgs::String>("ear", 1000);
 
-  ros::Rate loop_rate(10);
-
-  while (ros::ok())
-  {
-	//vetor de ponteiros para substituir *argc[]
-    char *vetor[5];
-    	  vetor[0] = (char*)"./continuous\0";
-    	  vetor[1] = (char*)"-lm\0";
-    	  vetor[2] = (char*)"/home/aramis/workspaces/hydro/catkin_ws/src/fsm/data/model/language_model.lm\0";
-    	  vetor[3] = (char*)"-dict\0";
-    	  vetor[4] = (char*)"/home/aramis/workspaces/hydro/catkin_ws/src/fsm/data/model/phonetic_dictionary.dic\0";
-
-    std_msgs::String msg;
-    std::string sms;
-    //char *argumento = (char*)"-adcdev plughw:1,0 -lm /home/gabriel/AMORA/model_2/5424.lm -dict /home/gabriel/AMORA/model_2/5424.dic";
-    std::stringstream ss;
-	//Continuous Sphinx
-	//continuous(0, (char**)"-adcdev plughw:1,0 -lm /home/gabriel/AMORA/model_2/5424.lm -dict /home/gabriel/AMORA/model_2/5424.dic", sms);
-	ps::continuous(5, vetor, sms);//captura de audio; sms: string da captura
-	ss << sms;
+	ros::Rate loop_rate(10);
 	
-    //ss << "hello world " << count;
-    //cout << endl << endl << endl << sms << endl << ss.str() << endl << endl << endl << endl;
-    //if(sms.empty())	cout << endl << "EMPTY" << endl << endl << endl << endl;
-    if(filters::filter(ss.str()))
-    {
-    	    if(sms.empty());
-    	    else
-    	    {
-		    msg.data = ss.str();
+	decoder decoder;
+	
+	while(ros::ok())
+	{
+		//Message
+		std_msgs::String msg;
+		string speech;
+		
+		msg.data = decoder.recognize();
+		
+		ear_pub.publish(msg);
+		
+		ros::spinOnce();
+		
+		loop_rate.sleep();
+	}
 
-		    ROS_INFO("%s", msg.data.c_str());
-
-		    chatter_pub.publish(msg);
-	    }
-    }
-
-    ros::spinOnce();
-
-    //loop_rate.sleep();
-  }
-
-  festival_say_text(EST_String("GOOD BYE."));
-  return 0;
+	return 0;
 }

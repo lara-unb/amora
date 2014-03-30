@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>almost_human</name>
+  <name>fsm</name>
   <version>0.0.0</version>
-  <description>The almost_human package</description>
+  <description>The fsm package</description>
 
   <maintainer email="gabriel.araujo.5000@gmail.com">gabriel</maintainer>
   <license>TODO</license>
