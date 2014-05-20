@@ -1,24 +1,39 @@
-//Header Filters
-#ifndef FILTERS_H
-#define FILTERS_H
+#ifndef FILTERS_H_
+#define FILTERS_H_
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <map>
 #include <string>
 #include <locale>
 #include <cstring>
 
-
-using namespace std;
-
-namespace filters
+class Filter
 {
-	void openfile(vector<string> *vecmap);
+	private:
+		static Filter* p;
+		std::string command;
+		std::stringstream path;
+		std::vector<std::string> veccommand;
+		std::vector<std::string> vecanswer;
+		std::map<std::string, std::string> Map;
+		
+		Filter();
+		void openfile();
+		void fillmap();
+	
+	public:
+		static Filter* getInstance();
 
-	string search_command(string command);
+		void setPath(char *);
+		void setPath(std::string);
+		std::string answer(std::string);
+		void release();
+		
+		~Filter();
+};
 
-	bool filter(string command);
-}
+//extern Filter filter;
 
-#endif //FILTERS_H
+#endif //FILTERS_H_

@@ -24,11 +24,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
   /usr/local/include/sphinxbase
   /usr/local/include/pocketsphinx
+  /usr/local/include/EST
+  /usr/local/include/festival
+  /usr/local/include
   /usr/local/lib
-  /home/gastd/Downloads/festival/src/include
-  /home/gastd/Downloads/speech_tools/include
-  /home/gastd/Downloads/speech_tools/lib
-  /home/gastd/Downloads/festival/src/lib/
 )
 
 
@@ -36,17 +35,23 @@ include_directories(
 add_library(continuous
   src/continuous.cpp
 )
-#add_library(filters
-#  src/filters.cpp
-#)
-#add_library(fsm
-#  src/fsm.cpp
-#)
+
+add_library(filters
+  src/filters.cpp
+)
+
+add_library(class_fsm
+  src/class_fsm.cpp
+  src/filters.cpp
+)
 
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES} continuous pocketsphinx sphinxbase sphinxad)
 
-#add_executable(talker src/talker.cpp)
-#target_link_libraries(talker ${catkin_LIBRARIES} ${pocketsphinx_LIBRARIES} fsm /home/gastd/Downloads/festival/src/lib/libFestival.a /home/gastd/Downloads/speech_tools/lib/libestools.a /home/gastd/Downloads/speech_tools/lib/libeststring.a /home/gastd/Downloads/speech_tools/lib/libestbase.a asound ncurses)
+add_executable(talker src/talker.cpp)
+target_link_libraries(talker ${catkin_LIBRARIES} Festival estools eststring estbase asound ncurses)
+
+add_executable(fsm src/fsm.cpp)
+target_link_libraries(fsm ${catkin_LIBRARIES} class_fsm)
 
 add_dependencies(listener beginner_tutorials_generate_message_cpp)

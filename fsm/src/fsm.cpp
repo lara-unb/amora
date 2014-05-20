@@ -1,129 +1,60 @@
-#include "fsm.h"
+#include "ros/ros.h"
+#include "std_msgs/Bool.h"
+#include "std_msgs/String.h"
+#include "class_fsm.h"
 
-void fsm::hi()
+using namespace std;
+
+FSM fsm;
+std_msgs::Bool feedback;
+std_msgs::String msg;
+
+void Synapse(const std_msgs::String::ConstPtr& speech)
 {
-	fsm::say("GOOD MORNING. MY NAME IS ARAMIS AND I WILL BE YOUR TOUR GUIDE.");
-	//festival_say_text(EST_String("Good Morning. My name is Aramis and I will be your tour guide."));
+	fsm.input(speech);
+	//msg.data = speech->data;
+	msg = fsm.output();
 }
 
-void fsm::yes()
+void Wait_speech_end(const std_msgs::Bool::ConstPtr& ack)
 {
-	fsm::say("YES MASTER.");
+	feedback.data = ack->data;
 }
 
-void fsm::follow()
+int main(int argc, char **argv)
 {
-	fsm::say("I WILL FOLLOW YOU NOW.");
-}
 
-void fsm::init()
-{
-	int heap_size = FESTIVAL_HEAP_SIZE;  // default scheme heap size
-	int load_init_files = 1; // we want the festival init files loaded
-
-	festival_initialize(load_init_files,heap_size);
-	 
-	fsm::hi();
-}
-
-void fsm::say(const char* sms)
-{
-	cout << sms << endl;
-	festival_say_text(EST_String(sms));
-}
-
-void fsm::say(string sms)
-{
-	cout << sms << endl;
-	festival_say_text(EST_String(sms.c_str()));
-}
-
-void fsm::say(int n)
-{
-	switch(n)
-	{
-	   	case '0':
-	   		fsm::say("I WILL FOLLOW YOU NOW");
-	   		break;
-	   	case '1':
-	   		fsm::say("");
-	   		break;
-	   	
-	   	case '2':
-	   		fsm::say("I WILL BE YOUR TOUR GUIDE");
-	   		break;
-	}
-}
-
-void fsm::wait()
-{
-	return;
-}
-
-void fsm::ack(ros::Time ts, int *state, bool *state_wait)
-{
-	static bool primeiro = true;
-
-	if(primeiro == true)
-	{
-		fsm::say("YES MASTER");
-	}
+	ros::init(argc, argv, "fsm");
+	ros::NodeHandle n;
 	
-	ros::Time now = ros::Time::now();
-	ros::Duration time;
+	ros::Publisher head_pub = n.advertise<std_msgs::String>("mouth", 1000);
+	ros::Publisher m_state = n.advertise<std_msgs::String>("state_fsm", 1000);
+	ros::Subscriber head_sub = n.subscribe("ear", 1000, Synapse);		
+	ros::Subscriber feedback_mouth = n.subscribe("feedback_mouth", 1000, Wait_speech_end);
+	ros::Rate loop_rate(10);
 	
-	time = now - ts;
-	ros::Duration ten_seconds(10.0);
-	//cout << time << endl;
-	primeiro = false;
-	if(time > ten_seconds)
-	{
-		*state = 1;
-		*state_wait = false;
-		primeiro = true;
-	}
-}
-
-void fsm::tour_guide()
-{
-	fsm::say("I WILL BE YOUR TOUR GUIDE.");
-}
-
-
-void fsm::check(const char *str, int *state, bool *state_wait)
-{
-	if(strcmp(str, "HI ARAMIS") == 0)
-	{
-		*state_wait = true;
-		*state = 2;
-		return;
-	}
-	if(*state_wait == true)
-	{
-		if(strcmp(str, "SHOW ME THE LARA") == 0)	*state = 3 + show_the_lara;
-		else if(strcmp(str, "TOUR GUIDE MODE") == 0)	*state = 3 + tour_guide_mode;
-		else if(strcmp(str, "FOLLOW ME") == 0)	*state = 3 + follow_me;
-		else	fsm::iam_check(string(str));
-	}
-}
-
-void fsm::iam_check(string str)
-{
-	size_t n = str.find("ARAMIS"), i = str.find("I AM ");
+	std_msgs::String msg_state;
 	
-	//cout << name << endl;
-	if(n != string::npos)
+	msg = fsm.output();
+	head_pub.publish(msg);
+	cout << msg.data << endl;
+	ros::spinOnce();
+	
+	while(ros::ok())
 	{
-		string name = str.substr(n);
-		if(strcmp(name.c_str(),"ARAMIS") == 0)
+		if(!msg.data.empty())
 		{
-			fsm::say("NO");
-			fsm::say("I AM ARAMIS.");
+			if(feedback.data)	head_pub.publish(msg);
+			
 		}
+		msg_state.data = fsm.getState();
+		m_state.publish(msg_state);
+		msg.data.clear();
+		//cout << feedback.data << endl;
+		feedback.data = false;
+		loop_rate.sleep();
+		ros::spinOnce();
 	}
-	else if(i != string::npos)
-	{
-		string hi("HI "), fala = hi + str.substr(5);
-		fsm::say(fala);
-	}
+	
+	return 0;
 }

@@ -13,14 +13,14 @@ char *argv[] = {(char*)"./continuous",
 		(char*)"-adcdev",
 		(char*)"plughw:0,0",
 		(char*)"-lm",
-		(char*)"/home/gastd/workspaces/hydro/test_ws/src/fsm/data/model/language_model.lm",
+		(char*)"/home/gastd/workspaces/hydro/catkin_ws/src/fsm/data/model/language_model.lm",
 		(char*)"-dict",
-		(char*)"/home/gastd/workspaces/hydro/test_ws/src/fsm/data/model/phonetic_dictionary.dic",
+		(char*)"/home/gastd/workspaces/hydro/catkin_ws/src/fsm/data/model/phonetic_dictionary.dic",
 		};
 int argc = 7;
 
 
-decoder::decoder()	throw(runtime_error)
+decoder::decoder()	throw(std::runtime_error)
 {
 	init();
 }
@@ -42,7 +42,7 @@ void decoder::sleep_msec(int32 ms)
 }
 
 
-string decoder::recognize()	throw(runtime_error)
+std::string decoder::recognize()	throw(std::runtime_error)
 {
 /*
  * Main utterance processing loop:
@@ -54,7 +54,7 @@ string decoder::recognize()	throw(runtime_error)
  */
  
 	//Indicate listening for next utterance
-	cout << "READY...." << endl;
+	std::cout << "READY...." << std::endl;
 
 	fflush(stdout);
 	fflush(stderr);
@@ -66,10 +66,10 @@ string decoder::recognize()	throw(runtime_error)
          * Non-zero amount of data received; start recognition of new utterance.
          * NULL argument to uttproc_begin_utt => automatic generation of utterance-id.
          */
-	if (ps_start_utt(ps, NULL) < 0)		throw runtime_error("Failed to start utterance\n");
+	if (ps_start_utt(ps, NULL) < 0)		throw std::runtime_error("Failed to start utterance\n");
 	ps_process_raw(ps, adbuf, k, FALSE, FALSE);
 
-	cout << "Listening..." << endl;
+	std::cout << "Listening..." << std::endl;
 	fflush(stdout);
 
 	//Note timestamp for this first block of data
@@ -79,7 +79,7 @@ string decoder::recognize()	throw(runtime_error)
 	for(;;)
 	{
 		//Read non-silence audio data, if any, from continuous listening module
-		if ((k = cont_ad_read(cont, adbuf, 4096)) < 0)	throw runtime_error("Failed to read audio\n");
+		if ((k = cont_ad_read(cont, adbuf, 4096)) < 0)	throw std::runtime_error("Failed to read audio\n");
 	
 		if (k == 0)
 		{
@@ -109,42 +109,45 @@ string decoder::recognize()	throw(runtime_error)
 	while (ad_read(ad, adbuf, 4096) >= 0);
 	cont_ad_reset(cont);
 
-	cout << "Stopped listening, please wait..." << endl;
+	std::cout << "Stopped listening, please wait..." << std::endl;
 	fflush(stdout);
 
 	//Finish decoding, obtain and print result
 	ps_end_utt(ps);
 	hyp = ps_get_hyp(ps, NULL, &uttid);
-	string str(hyp);
+	std::string str(hyp);
 	fflush(stdout);
 	
 	//Resume A/D recording for next utterance
-	if (ad_start_rec(ad) < 0)	throw runtime_error("Failed to start recording\n");
+	if (ad_start_rec(ad) < 0)	throw std::runtime_error("Failed to start recording\n");
 	return str;
 }
 
-void decoder::init()	throw(runtime_error)
+void decoder::init()	throw(std::runtime_error)
 {
 	config = cmd_ln_parse_r(NULL, cont_args_def, argc, argv, FALSE);
 		
-	if(config == NULL)	throw  runtime_error("Failed to configure device\n");
+	if(config == NULL)	throw  std::runtime_error("Failed to configure device\n");
 		
 	ps = ps_init(config);
 	
-	if(ps == NULL)	throw runtime_error("Failed to initialize device\n");
+	if(ps == NULL)	throw std::runtime_error("Failed to initialize device\n");
 		
-	if ( (ad = ad_open_dev(cmd_ln_str_r(config, "-adcdev"), (int)cmd_ln_float32_r(config, "-samprate"))) == NULL )	throw runtime_error("Failed to open audio device\n");
+	if ( (ad = ad_open_dev(cmd_ln_str_r(config, "-adcdev"), (int)cmd_ln_float32_r(config, "-samprate"))) == NULL )	throw std::runtime_error("Failed to open audio device\n");
 
-	if ((cont = cont_ad_init(ad, ad_read)) == NULL)	throw runtime_error("Failed to initialize voice activity detection\n");
+	if ((cont = cont_ad_init(ad, ad_read)) == NULL)	throw std::runtime_error("Failed to initialize voice activity detection\n");
 	
-	if (ad_start_rec(ad) < 0)	throw runtime_error("Failed to start recording\n");
+	if (ad_start_rec(ad) < 0)	throw std::runtime_error("Failed to start recording\n");
 	
-	if (cont_ad_calib(cont) < 0)	throw runtime_error("Failed to calibrate voice activity detection\n");
+	if (cont_ad_calib(cont) < 0)	throw std::runtime_error("Failed to calibrate voice activity detection\n");
 }
 
 void decoder::release()
-{	
-		cont_ad_close(cont);
-		ad_close(ad);
-		ps_free(ps);
+{
+	cont_ad_close(cont);
+	ad_close(ad);
+	ps_free(ps);
+	//cmd_ln_free_r(config);
+	cmd_ln_free();
+	E_FATAL("oi");
 }

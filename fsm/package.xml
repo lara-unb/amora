@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>fsm</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>The fsm package</description>
 
   <maintainer email="gabriel.araujo.5000@gmail.com">gabriel</maintainer>

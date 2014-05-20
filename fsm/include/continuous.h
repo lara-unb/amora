@@ -1,5 +1,5 @@
-#ifndef CONTINUOUS_H
-#define CONTINUOUS_H
+#ifndef CONTINUOUS_H_
+#define CONTINUOUS_H_
 #include <string>
 #include <iostream>
 #include <stdexcept>
@@ -12,8 +12,6 @@
 #include <sphinxbase/cont_ad.h>
 
 #include "pocketsphinx.h"
-
-using namespace std;
 
 //Class decoder for speech recognizer
 class decoder
@@ -44,16 +42,17 @@ class decoder
 		void sleep_msec(int32 ms);
 		
 		//Initialize continuous listening module
-		void init()	throw(runtime_error);
+		void init()	throw(std::runtime_error);
 		
 		//Release memory
 		void release();
-	public:
-		decoder()	throw(runtime_error);
 		
-		string recognize()	throw(runtime_error);
+	public:
+		decoder()	throw(std::runtime_error);
+		
+		std::string recognize()	throw(std::runtime_error);
 		
 		~decoder();
 };
 
-#endif //CONTINUOUS_H
+#endif //CONTINUOUS_H_
