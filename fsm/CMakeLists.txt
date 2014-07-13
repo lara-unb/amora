@@ -1,33 +1,34 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(fsm)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/")
+
+find_package(ALSA REQUIRED)
+find_package(Curses REQUIRED)
+find_package(Festival REQUIRED)
+find_package(Speechtools REQUIRED)
+find_package(SphinxBase 0.8 REQUIRED)
+find_package(PocketSphinx 0.8 REQUIRED)
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  rospy
-  std_msgs
-  message_generation
-  genmsg
-)
-
-generate_messages(
-  DEPENDENCIES
   std_msgs
 )
 
 catkin_package(
   INCLUDE_DIRS include/
-  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
+  CATKIN_DEPENDS roscpp std_msgs message_runtime
 )
 
 include_directories(include)
 include_directories(
+  ${ALSA_INCLUDE_DIR}
+  ${CURSES_INCLUDE_DIR}
   ${catkin_INCLUDE_DIRS}
-  /usr/local/include/sphinxbase
-  /usr/local/include/pocketsphinx
-  /usr/local/include/EST
-  /usr/local/include/festival
-  /usr/local/include
-  /usr/local/lib
+  ${FESTIVAL_INCLUDE_DIR}
+  ${SPEECHTOOLS_INCLUDE_DIR}
+  ${SPHINXBASE_INCLUDE_DIRS}
+  ${POCKETSPHINX_INCLUDE_DIRS}
 )
 
 
@@ -46,10 +47,10 @@ add_library(class_fsm
 )
 
 add_executable(listener src/listener.cpp)
-target_link_libraries(listener ${catkin_LIBRARIES} continuous pocketsphinx sphinxbase sphinxad)
+target_link_libraries(listener ${catkin_LIBRARIES} continuous ${POCKETSPHINX_LIBRARIES} ${SPHINXBASE_LIBRARIES} ${SPHINXAD_LIBRARIES})
 
 add_executable(talker src/talker.cpp)
-target_link_libraries(talker ${catkin_LIBRARIES} Festival estools eststring estbase asound ncurses)
+target_link_libraries(talker ${catkin_LIBRARIES} ${FESTIVAL_LIBRARIES} ${SPEECHTOOLS_LIBRARIES} ${ALSA_LIBRARY} ${CURSES_LIBRARY})
 
 add_executable(fsm src/fsm.cpp)
 target_link_libraries(fsm ${catkin_LIBRARIES} class_fsm)

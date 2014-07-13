@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	// Setup signal handlers
 	setup_sig_handler();
 	
-	//string path_par, language, phon_dict;
+	string path_par, language, phon_dict;
 	feedback.data = false;
 	ros::init(argc, argv, "listener");
 	ros::NodeHandle n;
