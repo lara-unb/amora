@@ -1,8 +1,0 @@
-Hi Aramis*Yes Master
-I am Aramis*No. I am Aramis
-I am Gabriel*Hi Gabriel
-I am George*Hi George
-Show me the LARA*I will be your tour guide
-tour guide mode*I will be your tour guide
-follow me*I will follow you now
-Good Bye*Good Bye

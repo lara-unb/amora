@@ -1,5 +1,0 @@
-<launch>
-	<node name="listener" pkg="fsm" type="listener" />
-	<node name="fsm" pkg="fsm" type="fsm" />
-	<node name="talker" pkg="fsm" type="talker" />
-</launch>
