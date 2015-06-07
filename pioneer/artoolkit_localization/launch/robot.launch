@@ -1,0 +1,5 @@
+<launch>
+	<node ns="/teleop_base" pkg="p2os_driver" type="p2os" name="p2os_driver"/>
+	<node pkg="camera1394" type="camera1394_node" name="camera1394_node" args="_video_mode:=640x480_rgb8"/>
+	<node ns="/camera" pkg="image_proc" type="image_proc" name="image_proc"/>
+</launch>

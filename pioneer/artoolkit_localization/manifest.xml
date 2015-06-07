@@ -1,0 +1,20 @@
+<package>
+  <description brief="Robot Localization using ARToolkit Markers">
+    Robot localization system based on the Unscented Kalman Filter, using ARToolkit markers as landmarks.
+  </description>
+  <author>George Brindeiro/georgebrindeiro@lara.unb.br<!--, André Gama/, Gabriel Figueiró/--></author>
+  <license>BSD</license>
+  <review status="experimental" notes="unreviewed"/>
+  <url>http://www.lara.unb.br/wiki/index.php/ROS/unb-ros-pkg/pioneer/artoolkit_localization</url>
+  
+  <depend package="roscpp"/>
+  <depend package="ar_pose"/>
+  <depend package="nav_msgs"/>
+  
+  <!-- <depend package="common_rosdeps" /> -->
+  <rosdep name="common_msgs" />
+  <rosdep name="eigen" />
+  
+  <rosdep name="gtest" />
+
+</package>

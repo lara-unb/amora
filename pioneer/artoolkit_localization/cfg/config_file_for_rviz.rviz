@@ -1,0 +1,418 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /TF1/Tree1/odom1
+        - /TF1/Tree1/odom1/pose_no_cov1
+        - /Camera1/Visibility1
+      Splitter Ratio: 0.5
+    Tree Height: 261
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: Camera
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 1
+      Frames:
+        All Enabled: false
+        back_sonar:
+          Value: false
+        base_link:
+          Value: false
+        camera:
+          Value: true
+        front_sonar:
+          Value: false
+        odom:
+          Value: true
+        p3at_back_left_axle:
+          Value: false
+        p3at_back_left_hub:
+          Value: false
+        p3at_back_right_axle:
+          Value: false
+        p3at_back_right_hub:
+          Value: false
+        p3at_front_left_axle:
+          Value: false
+        p3at_front_left_hub:
+          Value: false
+        p3at_front_right_axle:
+          Value: false
+        p3at_front_right_hub:
+          Value: false
+        pose_no_cov:
+          Value: true
+        top_plate:
+          Value: false
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        odom:
+          pose_no_cov:
+            base_link:
+              {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: base_link
+      Value: true
+    - Class: rviz/Camera
+      Enabled: true
+      Image Rendering: background and overlay
+      Image Topic: /camera/image_raw
+      Name: Camera
+      Overlay Alpha: 0.5
+      Queue Size: 100
+      Transport Hint: raw
+      Value: true
+      Visibility:
+        Grid: true
+        Marker: true
+        MotionPlanning: true
+        Odometry: true
+        TF: true
+        Value: true
+      Zoom Factor: 1
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: visualization_marker
+      Name: Marker
+      Namespaces:
+        markers: true
+      Queue Size: 100
+      Value: true
+    - Angle Tolerance: 0.1
+      Class: rviz/Odometry
+      Color: 255; 25; 0
+      Enabled: true
+      Keep: 1000
+      Length: 0.2
+      Name: Odometry
+      Position Tolerance: 0.1
+      Topic: /pose
+      Value: true
+    - Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: true
+      MoveIt_Goal_Tolerance: 0
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Constraint_Aware_IK: true
+      MoveIt_Warehouse_Host: 127.0.0.1
+      MoveIt_Warehouse_Port: 33829
+      Name: MotionPlanning
+      Planned Path:
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          back_sonar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          front_sonar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_left_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_left_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_left_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_right_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_right_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_right_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_left_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_left_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_left_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_right_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_right_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_right_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          top_plate:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Show Robot Collision: false
+        Show Robot Visual: false
+        Show Trail: false
+        State Display Time: 0.05 s
+        Trajectory Topic: /move_group/display_planned_path
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.08
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Joint Violation Color: 255; 0; 255
+        Planning Group: ""
+        Query Goal State: false
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 0.9
+        Scene Color: 50; 230; 50
+        Scene Display Time: 0.2
+        Show Scene Geometry: false
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          back_sonar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          front_sonar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_left_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_left_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_left_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_right_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_right_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_back_right_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_left_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_left_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_left_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_right_axle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_right_hub:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          p3at_front_right_wheel:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          top_plate:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Robot Alpha: 0.5
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: camera
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 11.3013
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.455203
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 6.20039
+    Saved: ~
+Window Geometry:
+  Camera:
+    collapsed: false
+  Displays:
+    collapsed: false
+  Height: 744
+  Hide Left Dock: false
+  Hide Right Dock: false
+  Motion Planning:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000010f00000261fc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000002800000194000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006101000001c2000000c70000001600fffffffb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670000000127000001740000017400ffffff000000010000010f00000261fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000002800000261000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000005150000003bfc0100000002fb0000000800540069006d0065010000000000000515000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000002eb0000026100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1301
+  X: 65
+  Y: 280

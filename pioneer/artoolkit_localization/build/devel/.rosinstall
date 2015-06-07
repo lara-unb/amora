@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/mendelson/workspaces/hydro/rosbuild_ws/pioneer/artoolkit_localization/build/devel/setup.sh

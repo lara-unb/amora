@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="joy" type="joy_node" name="joy_node"/>
+    <node pkg="p2os_teleop" type="p2os_teleop" name="p2os_teleop"/>
+    <node pkg="p2os_dashboard" type="p2os_dashboard" name="p2os_dashboard"/>
+</launch>

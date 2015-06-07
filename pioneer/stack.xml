@@ -1,0 +1,13 @@
+<stack>
+  <description brief="Pioneer codebase at LARA/UnB">
+    Codebase for use with the Pioneer robots at LARA/UnB.
+  </description>
+  <author>George Brindeiro/georgebrindeiro@lara.unb.br</author>
+  <license>BSD</license>  
+  <review status="experimental" notes="unreviewed"/>
+  <url>http://www.lara.unb.br/wiki/index.php/ROS/unb-ros-pkg/pioneer</url>
+  <depend stack="ros" />
+  <depend stack="p2os" />
+  <depend stack="ar_pose" />
+  <depend stack="common_rosdeps" />
+</stack>
