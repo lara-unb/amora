@@ -32,7 +32,13 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #use eigen library
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 find_package(Eigen REQUIRED)
+rosbuild_find_ros_package(ar_pose)
+rosbuild_find_ros_package(tf)
+include($ENV{ROS_ROOT}/core/rosbuild/FindPkgConfig.cmake)
+pkg_check_modules(ar_pose REQUIRED)
+pkg_check_modules(tf REQUIRED)
 #include_directories(${Eigen_INCLUDE_DIRS})
 include_directories(/usr/include/eigen3)
 
 rosbuild_add_executable(artoolkit_localization src/localization_node.cpp src/ar_map.cpp src/ukf.cpp)
+target_link_libraries(artoolkit_localization ${ar_pose_LIBRARIES} ${tf_LIBRARIES})

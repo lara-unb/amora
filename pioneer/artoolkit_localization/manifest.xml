@@ -8,11 +8,13 @@
   <url>http://www.lara.unb.br/wiki/index.php/ROS/unb-ros-pkg/pioneer/artoolkit_localization</url>
   
   <depend package="roscpp"/>
-  <depend package="ar_pose"/>
   <depend package="nav_msgs"/>
+  <depend package="tf"/>
   
   <!-- <depend package="common_rosdeps" /> -->
   <rosdep name="common_msgs" />
+  <rosdep name="tf" />
+  <depend package="roslib"/>
   <rosdep name="eigen" />
   
   <rosdep name="gtest" />
