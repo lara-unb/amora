@@ -298,7 +298,18 @@ geometry_msgs::PoseWithCovarianceStamped UKF::poseMsg()
 
 	pose_msg.pose.pose.orientation = tf::createQuaternionMsgFromYaw(state_(2));
 
+	// ROS_INFO("Covariance dimensions %dx%d",cov_state_.rows(),cov_state_.cols());
+
 	// TO DO: Add covariance
+	pose_msg.pose.covariance[0] = cov_state_(0);
+	pose_msg.pose.covariance[1] = cov_state_(1);
+	pose_msg.pose.covariance[2] = cov_state_(2);
+	pose_msg.pose.covariance[3] = cov_state_(3);
+	pose_msg.pose.covariance[4] = cov_state_(4);
+	pose_msg.pose.covariance[5] = cov_state_(5);
+	pose_msg.pose.covariance[6] = cov_state_(6);
+	pose_msg.pose.covariance[7] = cov_state_(7);
+	pose_msg.pose.covariance[8] = cov_state_(8);
 
 	return pose_msg;
 }
