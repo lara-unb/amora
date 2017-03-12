@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sonars &mdash; AMORA 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="AMORA 0.1.0 documentation" href="index.html"/>
+        <link rel="next" title="Cameras" href="cameras.html"/>
+        <link rel="prev" title="Computer" href="computer.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AMORA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="simple">
+</ul>
+<p class="caption"><span class="caption-text">Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="robots.html">Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Computer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Sonars</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sonar-specs">Sonar Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#geometry">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensitivity-adjustment">Sensitivity Adjustment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software">Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cameras.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batteries.html">Batteries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Receiver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imu.html">IMU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="os.html">Operational System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros.html">ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2os.html">p2os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpenCV.html">OpenCV</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">AMORA</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Sonars</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/sonars.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sonars">
+<h1>Sonars<a class="headerlink" href="#sonars" title="Permalink to this headline">¶</a></h1>
+<p>Athos and Porthos has two sonar arrays (front and rear), while Aramis have only one (front) sonar array, sonar or ultrasoud is a sensor that uses sound wave for detect obstacles and range information for collision avoidance.</p>
+<img alt="_images/pioneer3at_sonars.png" src="_images/pioneer3at_sonars.png" />
+<div class="section" id="sonar-specs">
+<h2>Sonar Specs<a class="headerlink" href="#sonar-specs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Range of view: 0.1 m ~ 5 m</li>
+<li>Aquisition rate: 25 Hz</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the sonar doesn&#8217;t view anything in its cone of view, it will send to the software the max range.</p>
+</div>
+</div>
+<div class="section" id="geometry">
+<h2>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
+<p>The position of each sonar is showed in the image below.</p>
+<img alt="_images/IeTo5.jpg" src="_images/IeTo5.jpg" />
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<ul class="last simple">
+<li>All these locations are fixed in the robot.</li>
+<li>There&#8217;re a URDF file, describing these locations to ROS. Please see the section <a class="reference external" href="urdf.html#urdf">description of the robot</a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="sensitivity-adjustment">
+<h2>Sensitivity Adjustment<a class="headerlink" href="#sensitivity-adjustment" title="Permalink to this headline">¶</a></h2>
+<p>The driver electronics for each array is calibrated at the factory. However, you may adjust the array’s sensitivity and range to accommodate differing operating environments. The sonar gain control is on the underside of the sonar driver board, which is attached to the floor of each sonar module.</p>
+<p>Sonar sensitivity adjustment controls are accessible directly, although you may need to remove the Gripperto access the front sonar, if you have that accessory attached. For the front sonar, for instance, locate ahole near the front underside of the array through which you can see the cap of the sonar-gain adjustment  potentiometer. Using a small flat-blade screwdriver, turn the gain control counterclockwise to make the sonar less sensitive to external noise and false echoes.</p>
+<p>Low sonar-gain settings reduce the robot’s ability to see small objects. Under some circumstances, that is desirable. For instance, attenuate the sonar if you are operating in a noisy environment or on uneven or highly reflective floor, a heavy shag carpet, for example. If the sonar are too sensitive, they will “see” the carpet immediately ahead of the robot as an obstacle.</p>
+<p>Increase the sensitivity of the sonar by turning the gain-adjustment screw clockwise, making them more likely to see small objects or objects at a greater distance. For instance, increase the gain if youare operating in a relatively quiet and open environment with a smooth floor surface.</p>
+<blockquote>
+<div>By Mobile Robots©</div></blockquote>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">See more in the <a class="reference external" href="manual.pdf">manual</a>.</p>
+</div>
+</div>
+<div class="section" id="software">
+<h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
+<p>We use the <a class="reference external" href="p2os.hml">p2os</a> to read the sonars readings and the <a class="reference external" href="sonar_viz.html">sonar_viz</a> to transform the readings in standart data to better maniplation.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cameras.html" class="btn btn-neutral float-right" title="Cameras" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="computer.html" class="btn btn-neutral" title="Computer" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Gabriel Araujo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

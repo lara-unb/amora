@@ -3,20 +3,47 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to AMORA's documentation!
-=================================
+Welcome to Project AMORA's documentation!
+=========================================
 
-Contents:
+
+Project `AMORA`_ is a project of the `Automation and Robotics Lab`_ (LARA) with field robots of the Pioneer family
+
+.. _AMORA: https://gastd.github.io/demo-site/
+.. _Automation and Robotics Lab: http://lara.unb.br/
+
+.. image:: /img/robots_old.jpg
+
+
+This site contain documentation of:
 
 .. toctree::
    :maxdepth: 2
 
+* :ref:`hard-docs`
+* :ref:`soft-docs`
 
+.. _hard-docs:
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 2
+   :caption: Hardware
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   robots
+   computer
+   sonars
+   cameras
+   batteries
+   gps
+   imu
 
+.. _soft-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Software
+
+   os
+   ros
+   p2os
+   OpenCV
