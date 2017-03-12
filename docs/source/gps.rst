@@ -39,7 +39,7 @@ A circuit board was built to integrate GPS and IMU readings, to communicate with
    :alt: case gps
    :align: center
 
-   Power Board with GPS Receiver and IMU (below GPS) in its case.
+   Power Board with GPS Receiver and IMU (under GPS) in its case.
 
 .. [1] See more in the `antenna user guide`_.
 
