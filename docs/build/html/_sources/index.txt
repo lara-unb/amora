@@ -7,7 +7,8 @@ Welcome to Project AMORA's documentation!
 =========================================
 
 
-Project `AMORA`_ is a project of the `Automation and Robotics Lab`_ (LARA) with field robots of the Pioneer family
+Project `AMORA`_ is a project of the `Automation and Robotics Lab`_ (LARA) with field robots of the Pioneer family.
+Here you will know all about our robots and how to run our software.
 
 .. _AMORA: https://gastd.github.io/demo-site/
 .. _Automation and Robotics Lab: http://lara.unb.br/

@@ -13,18 +13,34 @@ Specs
 - GPS tracking
 - L1, L-Band and SBAS signal tracking
 - Low power consumption for longer operating time
-- Single frequecy
+- Single frequency
 
+
+Antenna
+~~~~~~~
+
+.. image:: /img/gps_antenna.png
+
+"The ANT-35C1GA-TW-N is an active GPS antenna, 88.9 mm (3.5”) in diameter, and designed to operate at the GPS L1 frequency of 1575.42 MHz.
+Its mechanical configuration is a spherical radius molded radome which provides enhanced protection against rain and ice."[1]_
 
 Power Board
 ~~~~~~~~~~~
 
-.. image:: /img/rev2.JPG
-   :scale: 25%
+.. figure:: /img/rev2.JPG
+   :align: center
+   :alt: Power Board
 
-A circuit board was built to integrate gps and imu readings, to comunicate with onborad pc and to power the gps receiver and the imu.
+   Power Board
+
+A circuit board was built to integrate GPS and IMU readings, to communicate with onboard pc and to power the GPS receiver and the IMU.
 
 .. figure:: /img/case_gps.jpg
    :alt: case gps
+   :align: center
 
    Power Board with GPS Receiver and IMU (below GPS) in its case.
+
+.. [1] See more in the `antenna user guide`_.
+
+.. _antenna user guide: https://github.com/lara-unb/amora/blob/master/pdfs/antenna_novatel.pdf

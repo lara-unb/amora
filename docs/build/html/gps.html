@@ -92,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="batteries.html">Batteries</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">GPS Receiver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#specs">Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#antenna">Antenna</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#power-board">Power Board</a></li>
 </ul>
 </li>
@@ -157,17 +158,32 @@
 <li>GPS tracking</li>
 <li>L1, L-Band and SBAS signal tracking</li>
 <li>Low power consumption for longer operating time</li>
-<li>Single frequecy</li>
+<li>Single frequency</li>
 </ul>
+</div>
+<div class="section" id="antenna">
+<h2>Antenna<a class="headerlink" href="#antenna" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/gps_antenna.png" src="_images/gps_antenna.png" />
+<p>&#8220;The ANT-35C1GA-TW-N is an active GPS antenna, 88.9 mm (3.5”) in diameter, and designed to operate at the GPS L1 frequency of 1575.42 MHz.
+Its mechanical configuration is a spherical radius molded radome which provides enhanced protection against rain and ice.&#8221;<a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
 </div>
 <div class="section" id="power-board">
 <h2>Power Board<a class="headerlink" href="#power-board" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/rev2.JPG"><img alt="_images/rev2.JPG" src="_images/rev2.JPG" style="width: 816.0px; height: 612.0px;" /></a>
-<p>A circuit board was built to integrate gps and imu readings, to comunicate with onborad pc and to power the gps receiver and the imu.</p>
-<div class="figure" id="id1">
+<div class="figure align-center" id="id3">
+<img alt="Power Board" src="_images/rev2.JPG" />
+<p class="caption"><span class="caption-text">Power Board</span></p>
+</div>
+<p>A circuit board was built to integrate GPS and IMU readings, to communicate with onboard pc and to power the GPS receiver and the IMU.</p>
+<div class="figure align-center" id="id4">
 <img alt="case gps" src="_images/case_gps.jpg" />
 <p class="caption"><span class="caption-text">Power Board with GPS Receiver and IMU (below GPS) in its case.</span></p>
 </div>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>See more in the <a class="reference external" href="https://github.com/lara-unb/amora/blob/master/pdfs/antenna_novatel.pdf">antenna user guide</a>.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 
