@@ -51,4 +51,4 @@ Power Cube
 
 .. [1] See in the `manual`_.
 
-.. _manual: https://github.com/Gastd/cacic/blob/master/manual_pioneer.pdf
+.. _manual: https://github.com/lara-unb/amora/blob/master/pdfs/Pioneer%203AT%20Manual.pdf
