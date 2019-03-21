@@ -1,2 +1,2 @@
-Operational System
+Operating System
 ==================
