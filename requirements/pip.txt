@@ -1,0 +1,3 @@
+pip==18
+virtualenv==15.0.1
+mkdocs==0.14.0
